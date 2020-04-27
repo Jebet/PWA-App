@@ -1,44 +1,44 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import { CardWrapper } from "./Shared/card/card";
+import CardContent from "../src/cardcontent/cardcontent";
+import data from "./data/data.json";
+import logo from "./Images/groot.jpg";
 
-import { Link, Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import { logo } from "./wonder-woman.svg";
-import "./App.css";
-
-const Page = ({ title }) => (
-  <div className='App'>
-    <div className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
-      <h2>{title}</h2>
-    </div>
-    <p className='App-intro'>This is the {title} page.</p>
-    <p>
-      <Link to='/'>Home</Link>
-    </p>
-    <p>
-      <Link to='/about'>About</Link>
-    </p>
-    <p>
-      <Link to='/settings'>Settings</Link>
-    </p>
-  </div>
-);
-
-const Home = (props) => <Page title='Home' />;
-
-const About = (props) => <Page title='About' />;
-
-const Settings = (props) => <Page title='Settings' />;
+const ProfileImage = styled.img`
+  width: 300px;
+  height: 350px;
+  background-image: url("http://i.stack.imgur.com/2OrtT.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+`;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      superheros: data.superheros,
+      superhero: data.superhero,
+    };
+  }
   render() {
+    const { superhero, superheros } = this.state;
     return (
-      <Router>
-        <Switch>
-          <Route path='/' component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/settings' component={Settings} />
-        </Switch>
-      </Router>
+      <div>
+        <CardWrapper>
+          <section>
+            <ProfileImage
+              src={logo}
+              className='ProfileImage'
+              alt='logo'
+            ></ProfileImage>
+          </section>
+          {superheros.map((superhero, i) => (
+            <CardContent key={i} superhero={superhero} />
+          ))}
+        </CardWrapper>
+      </div>
     );
   }
 }
