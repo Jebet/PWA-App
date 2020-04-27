@@ -1,44 +1,51 @@
 import React, { Component } from "react";
+import Modal from "./modal/modal";
+import styled from "styled-components";
 
-import { Link, Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import { logo } from "./wonder-woman.svg";
-import "./App.css";
+const Button = styled.button`
+  border: 0;
+  background: #cccccc;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  position: absolute;
+`;
 
-const Page = ({ title }) => (
-  <div className='App'>
-    <div className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
-      <h2>{title}</h2>
-    </div>
-    <p className='App-intro'>This is the {title} page.</p>
-    <p>
-      <Link to='/'>Home</Link>
-    </p>
-    <p>
-      <Link to='/about'>About</Link>
-    </p>
-    <p>
-      <Link to='/settings'>Settings</Link>
-    </p>
-  </div>
-);
-
-const Home = (props) => <Page title='Home' />;
-
-const About = (props) => <Page title='About' />;
-
-const Settings = (props) => <Page title='Settings' />;
-
+const AppContainer = styled.div`
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
 class App extends Component {
+  state = {
+    show: true,
+  };
+  showModal = (e) => {
+    this.setState({
+      show: !this.state.show,
+    });
+  };
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path='/' component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/settings' component={Settings} />
-        </Switch>
-      </Router>
+      <AppContainer>
+        <Button
+          onClick={(e) => {
+            this.showModal(e);
+          }}
+        >
+          show Modal
+        </Button>
+
+        <Modal onClose={this.showModal} show={this.state.show}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+          deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
+          fuga omnis a sed impedit explicabo accusantium nihil doloremque
+          consequuntur.
+        </Modal>
+      </AppContainer>
     );
   }
 }
