@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { FiSearch } from "react-icons/fi";
-import Loader from "./assets/loader.gif";
+import Loader from "../assets/loader.gif";
 import "./search.css";
 
 class search extends Component {
@@ -98,8 +97,6 @@ class search extends Component {
 
     return (
       <div className='container'>
-        <h2 className='heading'>Live Search: React Application</h2>
-
         <label className='search-label' htmlFor='search-input'>
           <input
             type='text'
@@ -108,7 +105,7 @@ class search extends Component {
             placeholder='Search...'
             onChange={this.handleOnInputChange}
           />
-          <FiSearch className='fa fa-search search-icon' />
+          <i className='fa fa-search search-icon' />
         </label>
 
         {message && <p className='message'>{message}</p>}

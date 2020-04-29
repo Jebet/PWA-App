@@ -1,11 +1,22 @@
+import React from "react";
 import styled from "styled-components";
 
-export const CardWrapper = styled.div`
-  overflow: hidden;
-  padding: 0 0 32px;
-  margin: 48px auto 0;
-  width: 300px;
-  font-family: Quicksand, arial, sans-serif;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05), 0 0px 40px rgba(0, 0, 0, 0.08);
-  border-radius: 10px 10px 0 0px;
+const props = {
+  width: "",
+  height: "",
+  margin: "",
+};
+const card = styled.div`
+background: #ffffff,
+borderRadius: 2px,
+padding: 5px,
+position: relative,
+boxShadow: 1px 1px 3px rgba(0,0,0,0.12),
+border: 1px solid #dedede,
+fontFamily: Roboto', sans-serif,
+width: props.width,
+height: props.height,
+margin: props.margin
 `;
+
+export default card;

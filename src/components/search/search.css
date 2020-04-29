@@ -9,11 +9,12 @@
 .container {
   margin: 36px auto;
   width: 100%;
-  max-width: 800px;
+  width: 800px;
 }
 
 .search-label {
-  position: relative;
+  position: absolute;
+  height: 50px;
 }
 
 .container input {

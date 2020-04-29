@@ -1,25 +1,17 @@
 import React from "react";
-import { jsx, css } from "@emotion/core";
 import PropTypes from "prop-types";
 import "./header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <div width={`80%`} height={`auto`} margin={`20px auto`} background={`#eee`}>
-      <div>
-        <h1
-          css={css`
-            color: #3ea99f;
-          `}
-          className='title'
-        >
-          Welcome to Heros Dashboard
-        </h1>
+    <>
+      <div className='header'>
+        <h3>{props.title}</h3>
       </div>
-    </div>
+    </>
   );
 };
 Header.propTypes = {
-  name: PropTypes.string,
+  title: PropTypes.string,
 };
 export default Header;
