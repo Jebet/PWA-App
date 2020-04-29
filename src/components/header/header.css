@@ -1,0 +1,10 @@
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+
+  padding: 2px;
+  margin-bottom: 2px;
+  background-color: rgb(192, 45, 26);
+  color: #fff;
+}
