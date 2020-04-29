@@ -1,44 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import Search from "./components/search";
 
-import { Link, Switch, BrowserRouter as Router, Route } from "react-router-dom";
-import { logo } from "./wonder-woman.svg";
-import "./App.css";
-
-const Page = ({ title }) => (
-  <div className='App'>
-    <div className='App-header'>
-      <img src={logo} className='App-logo' alt='logo' />
-      <h2>{title}</h2>
-    </div>
-    <p className='App-intro'>This is the {title} page.</p>
-    <p>
-      <Link to='/'>Home</Link>
-    </p>
-    <p>
-      <Link to='/about'>About</Link>
-    </p>
-    <p>
-      <Link to='/settings'>Settings</Link>
-    </p>
-  </div>
-);
-
-const Home = (props) => <Page title='Home' />;
-
-const About = (props) => <Page title='About' />;
-
-const Settings = (props) => <Page title='Settings' />;
-
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path='/' component={Home} />
-          <Route path='/about' component={About} />
-          <Route path='/settings' component={Settings} />
-        </Switch>
-      </Router>
+      <div>
+        <Search />
+      </div>
     );
   }
 }
