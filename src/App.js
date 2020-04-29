@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Header from "./components/header/header";
 =======
 import styled from "styled-components";
@@ -17,8 +18,30 @@ const ProfileImage = styled.img`
   background-position: 50% 50%;
 `;
 >>>>>>> feature/card
+=======
+import Modal from "./modal/modal";
+import styled from "styled-components";
 
+const Button = styled.button`
+  border: 0;
+  background: #cccccc;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  position: absolute;
+`;
+>>>>>>> feature/modal
+
+const AppContainer = styled.div`
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`;
 class App extends Component {
+<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {
@@ -26,9 +49,20 @@ class App extends Component {
       superhero: data.superhero,
     };
   }
+=======
+  state = {
+    show: true,
+  };
+  showModal = (e) => {
+    this.setState({
+      show: !this.state.show,
+    });
+  };
+>>>>>>> feature/modal
   render() {
     const { superhero, superheros } = this.state;
     return (
+<<<<<<< HEAD
       <div>
 <<<<<<< HEAD
         <Header />
@@ -49,6 +83,24 @@ class App extends Component {
         </CardWrapper>
 >>>>>>> feature/card
       </div>
+=======
+      <AppContainer>
+        <Button
+          onClick={(e) => {
+            this.showModal(e);
+          }}
+        >
+          show Modal
+        </Button>
+
+        <Modal onClose={this.showModal} show={this.state.show}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+          deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
+          fuga omnis a sed impedit explicabo accusantium nihil doloremque
+          consequuntur.
+        </Modal>
+      </AppContainer>
+>>>>>>> feature/modal
     );
   }
 }
