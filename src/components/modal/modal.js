@@ -4,12 +4,17 @@ import styled from "styled-components";
 import "./modal.css";
 
 const Button = styled.button`
-  border: 0;
-  background: #78f89f;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
-  line-height: 1;
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
 `;
 
 const ButtonDiv = styled.div`
@@ -39,6 +44,24 @@ const Container = styled.div`
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+  top: 200px;
+  position: relative;
+  margin: 0 auto;
+`;
+
+const Overlay = styled.div`
+  position: fixed;
+  display: block;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  cursor: pointer;
 `;
 class Modal extends Component {
   onClose = (e) => {
@@ -49,13 +72,15 @@ class Modal extends Component {
       return null;
     }
     return (
-      <Container>
-        <ModalTitle>{this.props.title}Title</ModalTitle>
-        <ModalContent>{this.props.children}</ModalContent>
-        <ButtonDiv>
-          <Button onClick={this.onClose}>close</Button>
-        </ButtonDiv>
-      </Container>
+      <Overlay>
+        <Container>
+          <ModalTitle>{this.props.title}Superhero Stats</ModalTitle>
+          <ModalContent>{this.props.children}</ModalContent>
+          <ButtonDiv>
+            <Button onClick={this.onClose}>close</Button>
+          </ButtonDiv>
+        </Container>
+      </Overlay>
     );
   }
 }
@@ -64,7 +89,6 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
 };
 
 export default Modal;
