@@ -17,3 +17,8 @@
   color: black;
   border: 2px solid #555555;
 }
+.box {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+}
