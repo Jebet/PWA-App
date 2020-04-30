@@ -11,17 +11,20 @@ import "./App.css";
 class App extends Component {
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Navigation />
-            <Switch>
-              <Route path='/' component={Search} exact />
-              <Route path='/details' component={DetailView} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      </div>
+      <Jumbotron>
+        <Dashboard />
+        <div>
+          <BrowserRouter>
+            <div>
+              <Navigation />
+              <Switch>
+                <Route path='/' component={Search} exact />
+                <Route path='/details' component={DetailView} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+        </div>
+      </Jumbotron>
     );
   }
 }

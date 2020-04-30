@@ -97,6 +97,8 @@ class search extends Component {
 
     return (
       <div className='container'>
+        <h2 className='heading'>Hero Search</h2>
+
         <label className='search-label' htmlFor='search-input'>
           <input
             type='text'
