@@ -43,7 +43,6 @@ class detailview extends Component {
             className='card-img-top'
             src={this.state.person.image.url}
             alt='card-img-top'
-            style={{}}
           />
         </div>
         <h2> {this.state.person.name}</h2>

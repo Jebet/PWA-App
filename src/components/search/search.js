@@ -76,11 +76,11 @@ class search extends Component {
 
     if (Object.keys(heros).length && heros.length) {
       return (
-        <div className='heros-container'>
+        <div className='results-container'>
           {heros.map((hero) => {
             return (
-              <a key={hero.id} href={hero.image.url} className='heros-items'>
-                <h6 className='image-name'>{hero.name}</h6>
+              <a key={hero.id} href={hero.image.url} className='result-items'>
+                <h6 className='image-username'>{hero.name}</h6>
                 <div className='image-wrapper'>
                   <img className='image' src={hero.image.url} alt={hero} />
                 </div>
@@ -96,28 +96,32 @@ class search extends Component {
     const { query, loading, message } = this.state;
 
     return (
-      <div className='container'>
-        <h2 className='heading'>Hero Search</h2>
+      <div className='wrapper'>
+        {/*Heading*/}
+        <h1>Search Hero</h1>
+        <form className='search-form'>
+          {/*Search Input*/}
+          <label className='search-label' htmlFor='search-input'>
+            <input
+              type='text'
+              value={query}
+              id='search-input'
+              placeholder='Search...'
+              onChange={this.handleOnInputChange}
+            />
+            <i className='fa fa-search search-icon' />
+          </label>
+        </form>
 
-        <label className='search-label' htmlFor='search-input'>
-          <input
-            type='text'
-            value={query}
-            id='search-input'
-            placeholder='Search...'
-            onChange={this.handleOnInputChange}
-          />
-          <i className='fa fa-search search-icon' />
-        </label>
-
+        {/*Error Message*/}
         {message && <p className='message'>{message}</p>}
-
+        {/*Loader*/}
         <img
           src={Loader}
           className={`search-loading ${loading ? "show" : "hide"}`}
           alt='loader'
         />
-
+        {/*Result*/}
         {this.renderSearchResults()}
       </div>
     );
