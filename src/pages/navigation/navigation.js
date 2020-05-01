@@ -6,12 +6,12 @@ import { NavLink } from "react-router-dom";
 const Navigation = () => {
   return (
     <div className='navbar'>
-      <button className='nav-button'>
+      {/* <button className='nav-button'>
         <NavLink to='/'>Home</NavLink>
-      </button>
-      <button className='nav-button'>
+      </button> */}
+      {/* <button className='nav-button'>
         <NavLink to='/details'>Heros</NavLink>
-      </button>
+      </button> */}
     </div>
   );
 };
