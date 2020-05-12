@@ -11,7 +11,7 @@ class dashboard extends Component {
   render() {
     return (
       <div>
-        <Header title={props.title} {...this.props} />
+        <Header className='title' title={props.title} {...this.props} />
       </div>
     );
   }
